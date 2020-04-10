@@ -1,6 +1,0 @@
-# Ignoring Vagrant Intialized Directory;
-.vagrant/
-# Ignoring Vagrant File Configuration;
-Vagrantfile
-# Ignore from current directory to any number of child directory log files;
-./**/logs/*.log
