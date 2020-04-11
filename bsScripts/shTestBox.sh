@@ -67,15 +67,16 @@
 #!/bin/bash
 ## declare an array variable
 # declare -a array=("one" "two" "three")
-array=("one" "two" "three")
+# array=("one" "two" "three")
 
-# get length of an array
-arraylength=${#array[@]}
-
+# Length of array
+# arraylength=${#array[@]}
+# echo ${arraylength}
+# echo ${array[@]}
 # use for loop to read all values and indexes
-for (( i=1; i<${arraylength}+1; i++ ));
-do
-  echo $i " / " ${arraylength} " : " ${array[$i-1]}
-done
+# for (( i=1; i<${arraylength}+1; i++ ));
+# do
+#   echo $i " / " ${arraylength} " : " ${array[$i-1]}
+# done
 
 ## Array Case >> end;
