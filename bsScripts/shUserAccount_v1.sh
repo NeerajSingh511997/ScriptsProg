@@ -5,7 +5,6 @@
 ## non-sudo group
 ## Parameter: username, passwd, description is required !!
 
-
 # Executing on sudo priveledges;
 if [ `whoami` == root ]; then
     # Ask type of A/C;
@@ -31,15 +30,22 @@ if [ `whoami` == root ]; then
         else
             useradd -c "${description}" -p ${password} -M ${username}
         fi 
+        # Expire Default password;
+        echo "${password}" | passwd -e "${username}";
+
         # Error log;
-        if [ $? -ne 0 ]; then
+        if [ ${?} -eq 0 ]; then 
+            echo "Authentication token generated Successfully";
+            echo "Password must be changed at first login";
+        else    
+            echo "Authentication Token Generation Unsuccessfull";
             error=`/sbin/modprobe -n -v hfsplus 2>&1`;
             echo "$error";
-            echo "Error occured while adding users";
-            echo "Rolling back changes ...";
-            echo "Exit: 1"
-            exit 1;
+            deluser --remove-home ${username}
+            echo "Rolling Bank changes";
+            exit 1
         fi
+    
         echo "Account: ${username} created +d successfully ...";
         echo `cat /etc/passwd | grep ${username}`;
         exit 0;
@@ -67,16 +73,21 @@ if [ `whoami` == root ]; then
     elif [ $choice == 5 -o $choice == 6 ]; then 
         # User Choice;
         if [ $choice == 5 ]; then 
-            echo `cut -d: -f1 /etc/passwd `
+            echo `cut -d: -f1 /etc/passwd `;
         else
             read -p "Username: " username;
-            echo `cat /etc/passwd | grep ${username}*`
+            echo `cat /etc/passwd | grep ${username}`;
+            echo "UserName: ${username}";
+            echo "Host IP: `hostname -i`";
+            echo "Host ALL IP: `hostname -I`";
+            echo "Host Details ...";
+            echo "`hostnamectl`";
         fi
         # Error log;
         if [ $? -ne 0 ]; then
+            echo "Error occured user list can't generate."
             error=`/sbin/modprobe -n -v hfsplus 2>&1`;
             echo "$error";
-            echo "Error occured user list can't generate."
             echo "Rolling back changes ..."
             echo "Exit: 1"
             exit 1
@@ -100,4 +111,3 @@ else
 fi
 
 exit 0
-

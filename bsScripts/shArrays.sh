@@ -9,39 +9,34 @@
 # echo $2
 # echo $3
 
-itr=0
-len=$#
-array=()
-newArray=()
+# itr=0
+# len=$#
+# array=()
+# newArray=()
 
 # Method 1: While Loop
-while [ $itr -lt $len ]
-    do 
-        array[$itr]=${itr}
-        itr=`expr $itr + 1`
-    done
+# while [ $itr -lt $len ]
+#     do 
+#         array[$itr]=${itr}
+#         itr=`expr $itr + 1`
+#     done
 
-echo "$@"
-itr=0
+# echo "$@"
+# itr=0
 
 # Method 2: For Loop
-for x in $@
-    do 
-        newArray[$itr]=$x
-        itr=`expr $itr + 1`
-    done
+# for x in $@
+#     do 
+#         newArray[$itr]=$x
+#         itr=`expr $itr + 1`
+#     done
 
-echo "$@"
-arrlen=${#array[@]}
+# echo "$@"
+# arrlen=${#array[@]}
 # arrlen=${array[@]}
-echo ${arrlen}
-
-
+# echo ${arrlen}
 
 # echo "${array[@]}"
-
-
-
 
 # array=( one two three )
 # files=( "/etc/passwd" "/etc/group" "/etc/hosts" )
@@ -50,3 +45,16 @@ echo ${arrlen}
 # printf "%s\n" "${array[@]}"
 # printf "%s\n" "${files[@]}"
 # printf "%s\n" "${limits[@]}"
+
+## Associative Arrays;
+assocArr=([HDD]=Samsung, [Monitor]=Dell, [Keyboard]=A4Tech)
+# echo "${assocArr[HDD]}"
+# echo "${#assocArr[@]}"
+echo "${assocArr[HDD]}"
+echo "${assocArr[Monitor]}"
+echo "${assocArr[Keyboard]}"
+
+# for key in "${!assArray1[@]}"; 
+# do 
+#     echo "$key => ${assArray1[$key]}"; 
+# done
