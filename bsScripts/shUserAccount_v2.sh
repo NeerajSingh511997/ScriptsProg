@@ -23,15 +23,20 @@ fi
 
 # Display Menu Of the Script;
 function makeMenu() {    
-    echo "Welcome, `whoami`!";
-    echo "Account Types availables ...";
-    echo "1. U/A With Home Directory";
-    echo "2. U/A Without Home Directory";
-    echo "3. Delete U/A with Home Directory ";
-    echo "4. Delete U/A without Home Directory";
-    echo "5. List all the user in account";
-    echo "6. Search for a user account in tree";
-    read -p "Your Choice: " choice;
+    echo -e "\n"
+    echo "|>>|_Hello & Welcome, `whoami` ...";
+    echo " ____________________________________________"
+    echo "|__|_Account Types availables _______________|";
+    echo "|1.|_U/A With Home Directory_________________|";
+    echo "|2.|_U/A Without Home Directory _____________|";
+    echo "|3.|_Delete U/A with Home Directory _________|";
+    echo "|4.|_Delete U/A without Home Directory ______|";
+    echo "|5.|_List all the user in account ___________|";
+    echo "|6.|_Search for a user account in tree ______|";
+    echo "|7.|_Exit ___________________________________|";
+    echo "|__|_________________________________________| "
+    echo -e "\n"
+    read -p "|>>|_Your Choice: " choice;
     if [ ${?} -ne 0 ]; then 
         echo "Exception interruption at menu input ...";
         exit 1
@@ -200,6 +205,10 @@ elif [ $choice == 5 -o $choice == 6 ]; then
         clear    # Clear Screen;
         echo "Starting Process of Listing Account ...";
         displayUserAccount
+
+elif [ $choice == 7 ]; then
+        echo "Scripted Terminated With Status: ${?} ...";
+        exit 0
 
 else
         echo "Invalid input is given from the menu";
