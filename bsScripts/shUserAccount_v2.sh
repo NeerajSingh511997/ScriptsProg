@@ -1,9 +1,19 @@
 #!/bin/bash
 
-## Author: Neeraj Singh Junior;
-## Objective: Create user account with the modular shell scripting,
+## Author ...
+## Neeraj Singh Junior;
+## Objective ...
+## Create user account with the modular shell scripting,
 ## modules like functions - reducing the size of code.
-## Parameters: Username, Password, Description (oneline only)
+## Parameters ... 
+## Username, Password, Description (oneline only)
+## Modules ...
+## makeMenu(): Display the user account menu;
+## createUserAccount(): Used to create user account with or without Home Directory;
+## generatePassword(): Used to generate password for account;
+## backupUserAccount(): Used to backup user account;
+## deleteUserAccount(): Used to delete user account with or without Home Directory;
+## displayUserAccount(): Used to display or search account in the host system;
 
 # Check, if not Sudo or Root user account;
 if [ `whoami` != root ]; then
@@ -85,14 +95,17 @@ function createUserAccount() {
         # Backup New User Account; 
         echo "Started Process of Backing up U/A ..."
         backupUserAccount $username $password $comment;
+        echo "Account Created Successfully!";
         if [ ${?} -ne 0 ]; then 
             echo "Error occured while creating backup ..."
             echo "Rolling back changes ..."
             deluser --remove-home ${username}
             exit 1;
         fi
-
-        echo "Account Created Successfully!";
+        
+        echo "Account Credentials ..."
+        echo "Username: ${username}";
+        echo "Password: ${password}"
         exit 0;
 
     else
