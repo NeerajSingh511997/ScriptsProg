@@ -6,21 +6,20 @@
 ## Objective: Reusable lines of code which is going to be repeated in future
 ## scripts of mine, that's why saving them
 
-
-# Display Menu Of the Script;
+# Display Menu Of The Script
 function makeMenu() {    
     echo -e "\n"
     echo "|>>|_Hello & Welcome, `whoami` ...";
-    echo " ____________________________________________"
-    echo "|__|_Account Types availables _______________|";
-    echo "|1.|_U/A With Home Directory_________________|";
-    echo "|2.|_U/A Without Home Directory _____________|";
-    echo "|3.|_Delete U/A with Home Directory _________|";
-    echo "|4.|_Delete U/A without Home Directory ______|";
-    echo "|5.|_List all the user in account ___________|";
-    echo "|6.|_Search for a user account in tree _____|";
-    echo "|7.|_Exit __________________________________|";
-    echo "|__|_________________________________________| "
+    echo " ____________________________________________";
+    echo "|__|_Account Types availables ________________|";
+    echo "|1.|_Rename Files Of Current Directory. ______|";
+    echo "|2.|_Rename Files Of Other Directory. ________|";
+    echo "|3.|_Move All Files Of This Directory. _______|";
+    echo "|4.|_Delete All Files and Folder In Directory.|";
+    echo "|5.|_List all this Folder. ___________________|";
+    echo "|6.|_Search for a Files In Current Directory. |";
+    echo "|7.|_Exit. ___________________________________|";
+    echo "|__|__________________________________________| "
     echo -e "\n"
     read -p "|>>|_Your Choice: " choice;
     if [ ${?} -ne 0 ]; then 

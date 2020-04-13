@@ -8,3 +8,5 @@
 |Sun 12 Apr 01:50:29 IST 2020 | toy | Toy | Man |
 |Sun Apr 12 02:48:00 IST 2020 | jarvis | Jarvis | Bot |
 |Sun Apr 12 03:00:58 IST 2020 | fossa | fossa@29606 | Focal |
+|Mon Apr 13 20:15:18 IST 2020 | bot | =qwertyu04b5f429 | Botty |
+|Mon Apr 13 20:17:12 IST 2020 | xerus | qwertyui907d1685 | Xerus |

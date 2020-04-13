@@ -80,3 +80,16 @@
 # done
 
 ## Array Case >> end;
+
+## Variable Identity Check;
+while true; do
+   read -r -p "Enter a string: " VAR
+   # RegEx
+   if [[ $VAR =~ [0-9] ]];then
+      echo "if block"
+   else
+      echo "else block"
+   fi
+done
+
+## VIC >> End
