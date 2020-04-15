@@ -31,7 +31,7 @@ if [ `whoami` == root ]; then
             useradd -c "${description}" -p ${password} -M ${username}
         fi 
         # Expire Default password;
-        echo "${password}" | passwd -e "${username}";
+        passwd -e "${username}";
 
         # Error log;
         if [ ${?} -eq 0 ]; then 

@@ -1,10 +1,25 @@
 #!/bin/bash
 
-## Author: Neeraj Singh Junior;
-## Created Date: 2020 April, 12;
-## Upated Date: 2020 April, 12;
-## Objective: Reusable lines of code which is going to be repeated in future
-## scripts of mine, that's why saving them
+#!/bin/bash
+
+## > Author ...
+## Neeraj Singh Junior;
+## > Objective ...
+## Create user account with the modular shell scripting,
+## modules like functions - reducing the size of code.
+## Creation ...
+## 14 April 2020;
+## > Parameters ... 
+## Username, Password, Description (oneline only);
+## > Modules ...
+## makeMenu(): Display the user account menu;
+##  >> createUserAccount(): Used to create user account with or without Home Directory;
+##  >> generatePassword(): Used to generate password for account for sha1sum encryption;
+##  >> backupUserAccount(): Used to backup user account;
+##  >> deleteUserAccount(): Used to delete user account with or without Home Directory;
+##  >> displayUserAccount(): Used to display or search account in the host system;
+## > UPDATION:
+## Encrypted password generation method is added !
 
 # Display Menu Of The Script
 function makeMenu() {    

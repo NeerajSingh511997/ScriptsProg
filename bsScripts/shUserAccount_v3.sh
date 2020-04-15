@@ -1,19 +1,22 @@
 #!/bin/bash
 
-## Author ...
+## > Author ...
 ## Neeraj Singh Junior;
-## Objective ...
+## > Objective ...
 ## Create user account with the modular shell scripting,
 ## modules like functions - reducing the size of code.
-## Parameters ... 
-## Username, Password, Description (oneline only)
-## Modules ...
+## > Parameters ... 
+## Username, Password, Description (oneline only);
+## > Modules ...
 ## makeMenu(): Display the user account menu;
-## createUserAccount(): Used to create user account with or without Home Directory;
-## generatePassword(): Used to generate password for account for sha1sum encryption;
-## backupUserAccount(): Used to backup user account;
-## deleteUserAccount(): Used to delete user account with or without Home Directory;
-## displayUserAccount(): Used to display or search account in the host system;
+##  >> createUserAccount(): Used to create user account with or without Home Directory;
+##  >> generatePassword(): Used to generate password for account for sha1sum encryption;
+##  >> backupUserAccount(): Used to backup user account;
+##  >> deleteUserAccount(): Used to delete user account with or without Home Directory;
+##  >> displayUserAccount(): Used to display or search account in the host system;
+## > UPDATION:
+## Encrypted password generation method is added !
+
 
 # Check, if not Sudo or Root user account;
 if [ `whoami` != root ]; then

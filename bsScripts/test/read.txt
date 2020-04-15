@@ -1,0 +1,1 @@
+    42	bot:x:1001:1001:Botty Bot:/home/bot:

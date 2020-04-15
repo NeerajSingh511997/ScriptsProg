@@ -1,0 +1,6 @@
+     1	==> /etc/shadow <==
+     2	xerus:qwertyui907d1685:0:0:99999:7:::
+     3	
+     4	==> /etc/passwd <==
+     5	xerus:x:1002:1002:Xerus Xenial:/home/xerus:
+     6	tail: cannot open '/fakefile' for reading: No such file or directory
