@@ -1,19 +1,22 @@
 #!/bin/bash
 
-## Author ...
+## > Author ...
 ## Neeraj Singh Junior;
-## Objective ...
+## > Objective ...
 ## Create user account with the modular shell scripting,
 ## modules like functions - reducing the size of code.
-## Parameters ... 
-## Username, Password, Description (oneline only)
-## Modules ...
+## > Parameters ... 
+## Username, Password, Description (oneline only);
+## > Modules ...
 ## makeMenu(): Display the user account menu;
-## createUserAccount(): Used to create user account with or without Home Directory;
-## generatePassword(): Used to generate password for account;
-## backupUserAccount(): Used to backup user account;
-## deleteUserAccount(): Used to delete user account with or without Home Directory;
-## displayUserAccount(): Used to display or search account in the host system;
+##  >> createUserAccount(): Used to create user account with or without Home Directory;
+##  >> generatePassword(): Used to generate password for account for sha1sum encryption;
+##  >> backupUserAccount(): Used to backup user account;
+##  >> deleteUserAccount(): Used to delete user account with or without Home Directory;
+##  >> displayUserAccount(): Used to display or search account in the host system;
+## > UPDATION:
+## Encrypted password generation method is added !
+
 
 # Check, if not Sudo or Root user account;
 if [ `whoami` != root ]; then
@@ -46,12 +49,22 @@ function makeMenu() {
 
 # Generate Random Password;
 function generatePassword() {
-    local password="${1}@${RANDOM}";
-    if [ ${?} -ne 0 ]; then 
-        echo "Password generation exited with status 1";
-        exit 1;
+    # all chunk string;
+    chunkStr="qwertyuio7890pASDFGHJKLzxcv!@#$~%^&*bnmQWERTYUIOPasd123456fghjklZXCVBNM";
+    # randomize string;
+    local string=$(echo "$chunkStr" | fold -w8 | shuf | head -c8);
+    # alphanumeric sha1sum with date command;
+    alphaNum=$(echo date +%s%N${RANDOM}${RANDOM} |sha1sum | head -c8);
+    # final password
+    password=$(echo "${string}${alphaNum}");
+    # return password;
+    echo $password;
+    # capturing error log;
+    if [ $? -ne 0 ]; then
+        echo "Authentication Token Generation Failed with ${?}";
+        echo "Rolling back changes ...";
+        exit 0;
     fi
-    echo "$password";
     return 0;
 }
 
@@ -126,10 +139,10 @@ function backupUserAccount() {
     location='/var/www/html/scripts/bsScripts/data';
     # Backup file dump at location;
     if [ -d $location ]; then
-        echo "|`date` | $1 | $2 | $3 |" >> ${location}/shUserAccount-v2.txt;
+        echo "|`date` | $1 | $2 | $3 |" >> ${location}/DATA_-f_UserAccount_v2.txt;
     else
         mkdir $location;
-        echo "|`date` | $1 | $2 | $3 |" >> ${location}/shUserAccount-v2.txt;
+        echo "|`date` | $1 | $2 | $3 |" >> ${location}/DATA_-f_UserAccount_v2.txt;
     fi
     # Checking, if Status is 0;
     if [ $? -ne 0 ]; then   

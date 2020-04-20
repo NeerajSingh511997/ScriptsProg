@@ -112,3 +112,30 @@ else
         echo "Invalid input is given from the menu";
         exit 1
 fi
+
+# Main switch conditional statements;
+case $choice in 
+    1|2)
+        clear    # Clear Screen;
+        echo "Starting Process Of Creating Account ...";
+        createUserAccount
+        ;;
+    3|4)
+        clear    # Clear Screen;
+        echo "Starting Process Of Deleting Account ...";
+        deleteUserAccount
+        ;;
+    5|6)
+        clear    # Clear Screen;
+        echo "Starting Process of Listing Account ...";
+        displayUserAccount
+        ;;
+    7)
+        echo "Scripted Terminated With Status: ${?} ...";
+        exit 0
+        ;;
+    *)
+        echo "Invalid input is given from the menu" >&2;
+        exit 1
+        ;;
+esac
