@@ -1,9 +1,12 @@
 #!/bin/bash
 
-## > Author: Neeraj Singh Junior;
-## > Objective: To create a shell create files with the execute
+#| Author: Neeraj Singh Junior;
+#| Objective: To create a shell create files with the execute
 ## permission for root only;
-## > Parameters: filename - of type string;
+#| Usage: SCRIPTNAME [-d|-e] PARAMETER"
+##          -d,--DEFAULT_MODE    Create a normal file with log() and usage dummy method."
+##          -e,--EXTENED_MODE    Create a extendend file with log(), usage(), control statements."
+##          PARAMTER             Refer to the name of the file name with extension of shell."
 
 
 # Usage of the script;
@@ -51,7 +54,6 @@ function defMode() {
             echo -e "\n" >> ${filename} >> "${filename}";
             log -c "Author: Neeraj Singh Junior" >> "${filename}";
             log -c "Objective: "  >> "${filename}";
-            log -c "Parameters:"  >> "${filename}";
             log -c "Usage: FILENAME [-a|-b] [PARAMETERS]"  >> "${filename}";
             log -c "       -c  OPTIONS your_message."  >> "${filename}";
             log "File Generated Successfully"

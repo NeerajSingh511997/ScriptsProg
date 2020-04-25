@@ -3,7 +3,6 @@
 
 #| Author: Neeraj Singh Junior
 #| Objective: Open default google chrome tab with the download tab pinned.
-#| Parameters:
 #| Usage: FILENAME [-a|-b] [PARAMETERS]
 #|        -c  OPTIONS your_message.
 
