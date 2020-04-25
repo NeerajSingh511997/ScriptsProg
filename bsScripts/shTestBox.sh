@@ -104,3 +104,14 @@
 # echo -e "Hello World \c"
 # echo "After C"
 ## End >> Echo Statements;
+
+## Checking xdotool keys combination;
+i=0
+while [[ $i -lt 10 ]]
+do
+        
+        xdotool key Alt+Tab
+        $(( $i + 1 ))
+        echo $i;
+done
+## End > Checking xdotool keys combination;

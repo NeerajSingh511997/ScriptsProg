@@ -48,6 +48,8 @@ function openChrome() {
             log -e "Google Chrome failed to open ..."
             exit 1
         fi
+        # Press key Combinations;
+        xdotool key ctrl+j
         log "Google Chrome just opened for you ..."
     fi
     return 0;
