@@ -34,7 +34,6 @@ function log() {
     fi
 }
 
-
 # Main Control Statements;
 while getopts ab: option
 do 
@@ -54,6 +53,7 @@ do
             ;;
         ?) 
             log -e "Invalid Option is SELECTED";
+            usage;
             exit 0;
     esac
 done

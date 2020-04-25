@@ -82,14 +82,25 @@
 ## Array Case >> end;
 
 ## Variable Identity Check;
-while true; do
-   read -r -p "Enter a string: " VAR
-   # RegEx
-   if [[ $VAR =~ [0-9] ]];then
-      echo "if block"
-   else
-      echo "else block"
-   fi
-done
+# while true; do
+#    read -r -p "Enter a string: " VAR
+#    # RegEx
+#    if [[ $VAR =~ [0-9] ]];then
+#       echo "if block"
+#    else
+#       echo "else block"
+#    fi
+# done
 
 ## VIC >> End
+
+## Echo Statements;
+# echo "Test Case 1"
+# echo "Hello"
+# echo "World"
+
+# echo "Test Case 2"
+# echo "Hello World";
+# echo -e "Hello World \c"
+# echo "After C"
+## End >> Echo Statements;
