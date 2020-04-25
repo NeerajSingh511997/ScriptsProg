@@ -139,3 +139,20 @@ case $choice in
         exit 1
         ;;
 esac
+
+# Logging Statements;
+function log() {
+    # Error statement;
+    if [[ ${1} == '-e' ]]; then 
+        echo "|Err| ${2}";
+    # Process Execution;
+    elif [[ ${1} == '-p' ]]; then    
+        echo "|>>| ${2}";
+    # Comment Format;
+    elif [[ ${1} == '-c' ]]; then
+        echo "#| ${2}";
+    # Normal print statement;
+    else
+        echo "|>| ${1}";
+    fi
+}
