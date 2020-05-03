@@ -43,11 +43,13 @@ function log() {
 # Open Google Chrome;
 function openChrome() {
     if [[ $OPEN_STATUS="TRUE" ]]; then 
-        echo "`google-chrome --incognito`" &> /dev/null
+        # Opening Google Chrome in background;
+        echo "`google-chrome --incognito`" > /dev/null 2>&1 &
         if [ $? -ne 0 ]; then 
             log -e "Google Chrome failed to open ..."
             exit 1
         fi
+        sleep 8s
         # Press key Combinations;
         xdotool key ctrl+j
         log "Google Chrome just opened for you ..."
@@ -74,7 +76,7 @@ function resetChrome() {
 # Main Control Statements;
 while getopts onr option
 do 
-    $USERNAME=`id -un`
+    USERNAME=$(id -un)
     case $option in
         o)
             OPEN_STATUS="TRUE";
